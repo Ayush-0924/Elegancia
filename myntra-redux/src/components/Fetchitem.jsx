@@ -13,7 +13,7 @@ const Fetchitem = () => {
     const signal = controller.signal;
 
     dispatch(fetchStatusAction.markfetchingstarted());
-    fetch("https://dummybackend-1.onrender.com/items", { signal })
+    fetch("https://backend-elegancia.onrender.com/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusAction.markfetchDone());

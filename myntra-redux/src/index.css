@@ -593,6 +593,14 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.bag-actions-2{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
 .btn-add-bag-detail {
   margin-top: 8px;
   font-size: 18px;
@@ -602,6 +610,43 @@
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
+}
+.btn-add-bag-wishlist,
+.btn-remove-bag-wishlist {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-add-bag-wishlist {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+.btn-remove-bag-wishlist {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+
+.btn-add-bag-wishlist:hover,
+.btn-remove-bag-wishlist:hover {
+  transform: scale(1.05);
+}
+
+.btn-add-bag-wishlist:active,
+.btn-remove-bag-wishlist:active {
+  transform: scale(0.95);
+}
+
+.btn-add-bag-wishlist:hover {
+  background-color: #218838; /* Darker Green */
+}
+
+.btn-remove-bag-wishlist:hover {
+  background-color: #c82333; /* Darker Red */
 }
 .return-period {
   color: #000;

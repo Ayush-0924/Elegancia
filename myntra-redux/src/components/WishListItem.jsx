@@ -1,10 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { WishListAction } from "../store/WishList";
+import { bagAction } from "../store/bagSlice";
 
 const WishLIST = ({ item }) => {
 
   const dispatch = useDispatch();
+
+  const bagItems = useSelector((store) => store.bag);
+  const elementFound = bagItems.indexOf(item.id) >= 0;
+
+  const handleonAdd = () => {
+    dispatch(bagAction.addToBag(item.id));
+  };
+  const handleondelete = () => {
+    dispatch(bagAction.removeFromBag(item.id));
+  };
 
   const handleRemoveFromWishlist = () => {
     dispatch(WishListAction.removeFromWishList(item.id));
@@ -38,6 +49,25 @@ const WishLIST = ({ item }) => {
 
       <div className="remove-from-cart" onClick={handleRemoveFromWishlist}>
       <RiDeleteBin2Fill />
+      </div>
+      <div className="bag-actions-2">
+        {elementFound ? (
+          <button
+            type="button"
+            className="btn btn-danger btn-remove-bag-wishlist"
+            onClick={handleondelete}
+          >
+            Remove from Bag
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-success btn-add-bag-wishlist"
+            onClick={handleonAdd}
+          >
+            Add to Bag
+          </button>
+        )}
       </div>
     </div>
   );
